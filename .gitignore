@@ -1,0 +1,10 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración local de Claude Code
+.claude/
+
+# Fotos originales (fuente). Las que usa la web están en assets/img/
+FOTOS/
