@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# BASE_URL: https://ikerrogel.github.io/altium-web/ (reemplazar al migrar)
 Sitemap: https://ikerrogel.github.io/altium-web/sitemap.xml
