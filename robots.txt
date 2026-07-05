@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://altium.es/sitemap.xml
+Sitemap: https://ikerrogel.github.io/altium-web/sitemap.xml

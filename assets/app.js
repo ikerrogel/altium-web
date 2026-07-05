@@ -311,7 +311,7 @@
     var cap = document.createElement('span');
     cap.className = 'foto-real' + (mode === 'top' ? ' foto-real--top' : '');
     cap.setAttribute('aria-hidden','true');
-    cap.textContent = '📷 Foto real de Altium';
+    cap.textContent = 'Foto real de Altium';
     box.appendChild(cap);
   });
 

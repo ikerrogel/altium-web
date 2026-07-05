@@ -659,3 +659,12 @@ footer .logo .mark::before{background:var(--ink)}
   .logo{font-size:1.2rem}
   .logo .mark{width:36px;height:33px}
 }
+
+/* ====================================================================
+   NAP y enlaces legales del footer
+   ==================================================================== */
+.foot-nap{font-style:normal;color:#9aa0a9;font-size:.86rem;margin-top:14px;line-height:1.75}
+.foot-nap strong{color:#e6e8ec}
+.foot-nap a{color:#b9bdc4;text-decoration:none}
+.foot-nap a:hover{color:var(--accent)}
+.foot-legal{display:flex;gap:18px;flex-wrap:wrap}
