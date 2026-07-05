@@ -238,60 +238,35 @@
       for(var k=0;k<n;k++){
         var b = document.createElement('button');
         b.setAttribute('aria-label','Imagen '+(k+1));
-        (function(idx){ b.addEventListener('click', function(){ go(idx); }); })(k);
+        (function(idx){ b.addEventListener('click', function(){ goTo(idx); }); })(k);
         dotsWrap.appendChild(b); dots.push(b);
       }
     }
-    function render(){ track.style.transform = 'translateX('+(-i*100)+'%)'; dots.forEach(function(d,idx){ d.classList.toggle('on', idx===i); }); }
-    function go(k){ i = (k+n)%n; render(); }
-    if(prev) prev.addEventListener('click', function(){ go(i-1); });
-    if(next) next.addEventListener('click', function(){ go(i+1); });
-    render();
-    // arrastrar / deslizar con el dedo (detecta gesto horizontal y no interfiere con el scroll vertical)
-    var startX=0, startY=0, dx=0, dragging=false, horiz=false, decided=false, touchMode=false;
-    function down(e){
-      if(e.type==='mousedown' && touchMode) return; // ignora el raton emulado tras un toque
-      dragging=true; decided=false; horiz=false; dx=0;
-      var t = e.touches ? e.touches[0] : e;
-      startX = t.clientX; startY = t.clientY;
-      track.classList.add('dragging');
-    }
-    function move(e){
-      if(!dragging) return;
-      var t = e.touches ? e.touches[0] : e;
-      var mx = t.clientX - startX, my = t.clientY - startY;
-      if(!decided){
-        if(Math.abs(mx) > 8 || Math.abs(my) > 8){
-          decided = true;
-          horiz = Math.abs(mx) > Math.abs(my);
-          if(!horiz){ dragging = false; track.classList.remove('dragging'); return; }
-        } else { return; }
+    function setDots(){ dots.forEach(function(d,idx){ d.classList.toggle('on', idx===i); }); }
+    // el deslizamiento tactil es NATIVO (CSS scroll-snap); aqui solo movemos con las flechas/puntos y seguimos la posicion
+    function goTo(k){ i = Math.max(0, Math.min(n-1, k)); track.scrollTo({left: i*track.clientWidth, behavior:'smooth'}); setDots(); }
+    if(prev) prev.addEventListener('click', function(){ goTo(i-1); });
+    if(next) next.addEventListener('click', function(){ goTo(i+1); });
+    var st;
+    track.addEventListener('scroll', function(){
+      clearTimeout(st);
+      st = setTimeout(function(){ i = Math.round(track.scrollLeft / (track.clientWidth||1)); setDots(); }, 80);
+    }, {passive:true});
+    setDots();
+    // tocar sin arrastrar abre la foto en grande (el arrastre lo gestiona el scroll nativo)
+    var tx=0, ty=0, moved=false;
+    track.addEventListener('touchstart', function(e){ var t=e.touches[0]; tx=t.clientX; ty=t.clientY; moved=false; }, {passive:true});
+    track.addEventListener('touchmove', function(e){ var t=e.touches[0]; if(Math.abs(t.clientX-tx)>10 || Math.abs(t.clientY-ty)>10) moved=true; }, {passive:true});
+    track.addEventListener('touchend', function(){
+      if(!moved && typeof openLightbox === 'function'){
+        openLightbox(Array.prototype.map.call(slides, function(s){ return s.querySelector('img'); }), i);
       }
-      if(horiz){
-        dx = mx;
-        if(e.cancelable) e.preventDefault();
-        track.style.transform = 'translateX(calc('+(-i*100)+'% + '+dx+'px))';
+    });
+    track.addEventListener('click', function(){
+      if(!('ontouchstart' in window) && typeof openLightbox === 'function'){
+        openLightbox(Array.prototype.map.call(slides, function(s){ return s.querySelector('img'); }), i);
       }
-    }
-    function up(){
-      if(!dragging) return; dragging=false; track.classList.remove('dragging');
-      var w = slider.clientWidth || 1;
-      if(horiz && dx < -w*0.15) go(i+1);
-      else if(horiz && dx > w*0.15) go(i-1);
-      else {
-        render();
-        if(!decided && typeof openLightbox === 'function'){
-          openLightbox(Array.prototype.map.call(slides, function(s){ return s.querySelector('img'); }), i);
-        }
-      }
-      dx=0; horiz=false; decided=false;
-    }
-    track.addEventListener('mousedown', down);
-    window.addEventListener('mousemove', move);
-    window.addEventListener('mouseup', up);
-    track.addEventListener('touchstart', function(e){ touchMode=true; down(e); }, {passive:true});
-    track.addEventListener('touchmove', move, {passive:false});
-    track.addEventListener('touchend', up);
+    });
   });
 
   /* ---- Formulario (Web3Forms con envío AJAX) ---- */
