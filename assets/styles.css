@@ -125,8 +125,7 @@ img{max-width:100%;display:block}
    NAV
    ==================================================================== */
 header.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:20px 0;
-  transition:background .4s var(--ease),border-color .4s,padding .4s var(--ease),box-shadow .4s,transform .45s var(--ease);border-bottom:1px solid transparent}
-header.nav.nav-hidden{transform:translateY(-100%)}
+  transition:background .4s var(--ease),border-color .4s,padding .4s var(--ease),box-shadow .4s;border-bottom:1px solid transparent}
 header.nav.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) saturate(140%);
   -webkit-backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid var(--line);padding:13px 0;box-shadow:var(--shadow)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -510,6 +509,8 @@ footer .logo .mark::before{background:var(--ink)}
   .nav-links li{width:100%}
   .nav-links a{display:block;width:100%;font-family:'Syne',sans-serif;font-weight:700;font-size:1.7rem;text-transform:uppercase;text-align:center;padding:12px 0;border-bottom:1px solid var(--line)}
   .nav-links .nav-cta{display:inline-flex;width:auto;font-family:'Sora';margin:18px auto 0;justify-content:center;font-size:1rem;border-bottom:0}
+  /* en móvil el header no debe crear contexto (si no, el menú fijo no cubre la pantalla) */
+  header.nav.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.97)}
   .burger{display:flex}
   .section,.section.tight{padding:74px 0}
   .section-head{margin-bottom:40px}

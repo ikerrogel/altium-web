@@ -13,18 +13,7 @@
   /* Nav scrolled + barra de progreso superior */
   var nav = document.querySelector('header.nav');
   var bar = document.querySelector('.scroll-bar');
-  var lastScrollY = 0;
-  function navState(){
-    if(!nav) return;
-    var y = window.scrollY;
-    nav.classList.toggle('scrolled', y > 40);
-    // ocultar cabecera al bajar, mostrarla al subir (o si el menú está abierto o estamos arriba)
-    var menuOpen = typeof navLinks !== 'undefined' && navLinks && navLinks.classList.contains('open');
-    if(menuOpen || y < 90){ nav.classList.remove('nav-hidden'); }
-    else if(y > lastScrollY + 5){ nav.classList.add('nav-hidden'); }
-    else if(y < lastScrollY - 5){ nav.classList.remove('nav-hidden'); }
-    lastScrollY = y;
-  }
+  function navState(){ if(nav) nav.classList.toggle('scrolled', window.scrollY > 40); }
   navState();
 
   /* Menú móvil */
