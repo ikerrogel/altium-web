@@ -29,13 +29,13 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
 body{
   font-family:'Sora',system-ui,sans-serif;
   background:var(--bg);
   color:var(--ink);
   line-height:1.65;
-  overflow-x:hidden;
+  overflow-x:clip;
   overscroll-behavior-x:none;
   width:100%;
   max-width:100%;
@@ -61,7 +61,7 @@ body::after{
 }
 
 /* ---- Tipografía (más legible, menos aplanada) ---- */
-h1,h2,h3,h4{line-height:1.06;letter-spacing:-.008em;font-weight:800;overflow-wrap:break-word;word-break:normal;-webkit-hyphens:none;hyphens:none}
+h1,h2,h3,h4{line-height:1.06;letter-spacing:-.008em;font-weight:800;overflow-wrap:normal;word-break:normal;-webkit-hyphens:none;hyphens:none}
 .display{font-family:'Syne',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.005em;line-height:1.05}
 .mono{font-family:'JetBrains Mono',monospace}
 ::selection{background:var(--accent);color:var(--accent-ink)}
@@ -217,8 +217,8 @@ header.nav.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) 
 .page-hero .ph-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(245,245,241,.55),var(--bg-2))}
 .page-hero .inner{position:relative;z-index:2;max-width:880px}
 .page-hero h1{font-family:'Syne',sans-serif;font-weight:800;text-transform:uppercase;
-  font-size:clamp(1.5rem,5.6vw,5.4rem);line-height:1.05;margin-top:16px;letter-spacing:-.015em;
-  overflow-wrap:break-word;word-break:normal;-webkit-hyphens:none;hyphens:none}
+  font-size:clamp(1.45rem,4.8vw,4rem);line-height:1.06;margin-top:16px;letter-spacing:-.015em;
+  overflow-wrap:normal;word-break:normal;-webkit-hyphens:none;hyphens:none}
 .page-hero p{color:var(--muted);font-size:1.14rem;margin-top:22px;max-width:620px}
 .crumb{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted-2);letter-spacing:.12em;text-transform:uppercase}
 .crumb a:hover{color:var(--accent-deep)}

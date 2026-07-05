@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Syne:wght@600;700;800&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=17">
+<link rel="stylesheet" href="assets/styles.css?v=18">
 
 <script type="application/ld+json">
 {
@@ -138,14 +138,25 @@
   </div>
 </section>
 
-<!-- RESEÑAS DE GOOGLE -->
-<section class="section" id="resenas" aria-label="Reseñas de clientes en Google">
+<!-- RESEÑAS -->
+<section class="section" id="resenas" aria-label="Reseñas de clientes">
   <div class="container">
-    <div class="section-head reveal"><span class="kicker">Reseñas</span><h2 class="display">Opiniones reales<br>en <span class="gtxt">Google</span></h2><p>Consulta las valoraciones de nuestros clientes en Barcelona y su área metropolitana directamente en Google.</p></div>
-    <div class="reveal" style="text-align:center">
-      <!-- PLACEHOLDER: sustituye la URL por el enlace a tu ficha de Google Business Profile. -->
-      <a href="https://search.google.com/local/reviews?placeid=PON-AQUI-TU-PLACE-ID" target="_blank" rel="noopener" class="btn btn-primary" data-cursor>Ver todas nuestras reseñas en Google <span class="arrow">↗</span></a>
+    <div class="section-head reveal"><span class="kicker">Reseñas</span><h2 class="display">Opiniones de<br>nuestros <span class="gtxt">clientes</span></h2><p>Desliza para ver más. Valoraciones de clientes en Barcelona y su área metropolitana.</p></div>
+    <div class="reviews-block reveal" data-d="1">
+      <div class="reviews">
+        <button class="rev-nav prev" type="button" aria-label="Reseña anterior">&#8249;</button>
+        <div class="rev-viewport"><div class="rev-track">
+          <!-- PLACEHOLDER: sustituye estas reseñas de ejemplo por reseñas reales de tus clientes (por ejemplo, copiadas de tu ficha de Google). -->
+          <article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="quote">"Rehabilitaron la fachada de nuestra comunidad sin montar andamios. Rápido, limpio y a buen precio."</p><p class="who"><b>Marta G.</b><span>Comunidad de vecinos, Gràcia (Barcelona)</span></p></article>
+          <article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="quote">"Nos arreglaron unas goteras del tejado con todas las garantías. Profesionales y muy serios."</p><p class="who"><b>Jordi M.</b><span>Propietario, Badalona</span></p></article>
+          <article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="quote">"Sellaron unas grietas que llevaban años dando humedades. Por fin solucionado y sin obras molestas."</p><p class="who"><b>Antonio R.</b><span>L'Hospitalet de Llobregat</span></p></article>
+          <article class="review"><div class="stars" aria-label="5 de 5 estrellas">★★★★★</div><p class="quote">"Impermeabilizaron la terraza de la finca y se acabaron las filtraciones. Trato muy cercano."</p><p class="who"><b>Núria P.</b><span>Administradora de fincas, Sant Cugat</span></p></article>
+        </div></div>
+        <button class="rev-nav next" type="button" aria-label="Reseña siguiente">&#8250;</button>
+      </div>
+      <div class="rev-dots"></div>
     </div>
+    <p style="text-align:center;margin-top:30px"><a href="https://search.google.com/local/reviews?placeid=PON-AQUI-TU-PLACE-ID" target="_blank" rel="noopener" class="btn btn-ghost" data-cursor>Ver todas nuestras reseñas en Google <span class="arrow">↗</span></a></p>
   </div>
 </section>
 
@@ -192,6 +203,6 @@
   <a href="tel:+34631282290" class="tel" aria-label="Llamar al 631 282 290"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.94.36 1.86.7 2.74a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.34-1.34a2 2 0 0 1 2.11-.45c.88.34 1.8.57 2.74.7A2 2 0 0 1 22 16.92z"/></svg></a>
 </div>
 
-<script src="assets/app.js?v=11"></script>
+<script src="assets/app.js?v=12"></script>
 </body>
 </html>
