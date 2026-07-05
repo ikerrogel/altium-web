@@ -11,7 +11,7 @@
   --ink:#15171c;          /* casi negro */
   --ink-soft:#33373f;
   --muted:#5e6671;
-  --muted-2:#9aa0a9;
+  --muted-2:#6b7079;      /* gris de etiquetas, contraste AA sobre fondo claro */
   --line:rgba(21,23,28,.12);
   --line-2:rgba(21,23,28,.22);
   --card:#ffffff;
@@ -74,6 +74,11 @@ h1,h2,h3,h4{line-height:1.06;letter-spacing:-.008em;font-weight:800;overflow-wra
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 picture{display:contents}
+
+/* Saltar al contenido (accesibilidad): oculto hasta recibir foco por teclado */
+.skip-link{position:absolute;left:8px;top:-60px;z-index:3000;background:var(--ink);color:#fff;
+  padding:12px 20px;border-radius:0 0 12px 12px;font-weight:700;transition:top .25s var(--ease)}
+.skip-link:focus{top:0;outline:3px solid var(--accent);outline-offset:2px}
 
 /* ---- Utilidades ---- */
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
