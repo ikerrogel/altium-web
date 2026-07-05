@@ -248,8 +248,9 @@
     if(next) next.addEventListener('click', function(){ go(i+1); });
     render();
     // arrastrar / deslizar con el dedo (detecta gesto horizontal y no interfiere con el scroll vertical)
-    var startX=0, startY=0, dx=0, dragging=false, horiz=false, decided=false;
+    var startX=0, startY=0, dx=0, dragging=false, horiz=false, decided=false, touchMode=false;
     function down(e){
+      if(e.type==='mousedown' && touchMode) return; // ignora el raton emulado tras un toque
       dragging=true; decided=false; horiz=false; dx=0;
       var t = e.touches ? e.touches[0] : e;
       startX = t.clientX; startY = t.clientY;
@@ -288,7 +289,7 @@
     track.addEventListener('mousedown', down);
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseup', up);
-    track.addEventListener('touchstart', down, {passive:true});
+    track.addEventListener('touchstart', function(e){ touchMode=true; down(e); }, {passive:true});
     track.addEventListener('touchmove', move, {passive:false});
     track.addEventListener('touchend', up);
   });
