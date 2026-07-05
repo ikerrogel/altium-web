@@ -216,10 +216,10 @@ header.nav.scrolled{background:rgba(255,255,255,.86);backdrop-filter:blur(16px) 
 .page-hero .ph-media{position:absolute;inset:0;z-index:0}
 .page-hero .ph-media img{width:100%;height:100%;object-fit:cover;opacity:.10}
 .page-hero .ph-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(245,245,241,.55),var(--bg-2))}
-.page-hero .inner{position:relative;z-index:2;max-width:880px}
+.page-hero .inner{position:relative;z-index:2}
 .page-hero h1{font-family:'Syne',sans-serif;font-weight:800;text-transform:uppercase;
   font-size:clamp(1.45rem,4.8vw,4rem);line-height:1.06;margin-top:16px;letter-spacing:-.015em;
-  overflow-wrap:normal;word-break:normal;-webkit-hyphens:none;hyphens:none}
+  max-width:900px;overflow-wrap:normal;word-break:normal;-webkit-hyphens:none;hyphens:none}
 .page-hero p{color:var(--muted);font-size:1.14rem;margin-top:22px;max-width:620px}
 .crumb{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted-2);letter-spacing:.12em;text-transform:uppercase}
 .crumb a:hover{color:var(--accent-deep)}
@@ -653,6 +653,15 @@ footer .logo .mark::before{background:var(--ink)}
   .page-hero{padding:150px 0 56px}
   .hero-meta{gap:22px}
   .hero-sub{font-size:1.05rem}
+  /* Titulos mas contenidos en movil para que no se corten palabras */
+  .hero h1{font-size:clamp(1.85rem,8.2vw,3rem)}
+  .page-hero h1{font-size:clamp(1.5rem,7.2vw,2.5rem)}
+  .section-head h2{font-size:clamp(1.5rem,6.8vw,2.4rem)}
+  .cta-banner h2{font-size:clamp(1.5rem,6.4vw,2.2rem)}
+  .contact-aside h2{font-size:clamp(1.45rem,6vw,2.1rem)}
+  /* Red de seguridad: en movil, si una palabra no cabe, se parte con guion
+     en vez de salirse y quedar recortada (en escritorio se mantiene entera) */
+  h1,h2,h3,h4{overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
 }
 @media (max-width:380px){
   .container{padding:0 16px}
